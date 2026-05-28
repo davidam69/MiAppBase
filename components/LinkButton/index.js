@@ -14,25 +14,15 @@ export default function LinkButton({title, onPress, disabled=false, destructive=
 
     const getIconSource = (iconType, position) => {
         if (!iconType) return null;
-        const isDestructive = (iconType === "logout");
-
-        let state = "default";
-        if (disabled) state = "disabled";
-        else if (isPressed) state = "pressed";
 
         if (iconType === "arrow" && position === "left") {
-            if (state === "default") return icarleftdef;
-            if (state === "pressed") return icarleftpres;
+            return isPressed ? icarleftpres : icarleftdef;
         }
-
         if (iconType === "arrow" && position === "right") {
-            if (state === "default") return icarRigdef;
-            if (state === "pressed") return icarRigpres;
-        }   
-
+            return isPressed ? icarRigpres : icarRigdef;
+        }
         if (iconType === "logout") {
-            if (state === "default") return iclogoutdef;
-            if (state === "pressed") return iclogoutpres;
+            return isPressed ? iclogoutpres : iclogoutdef;     //mirar esto, no se si es correcto, lo puse asi para evitar repetir codigo pero no se si es correcto, revisa porfavor
         }
         return null;
     };
@@ -41,22 +31,20 @@ export default function LinkButton({title, onPress, disabled=false, destructive=
         if (disabled) {
             return destructive ? styles.destructiveDisabled : styles.disabled;
         }
-        if (isPressed) {
-            return destructive ? styles.destructivePressed : styles.pressed;
+        if (destructive) {
+            return isPressed ? styles.destructivePressed : styles.destructiveDefault;
         }
-        return destructive ? styles.destructiveDefault : styles.default;
+        return isPressed ? styles.pressed : styles.default;
     };
 
     const handlePress = () => {
-        if (!disabled) {
+        if (!disabled && onPress) {
             onPress();
-        } else {
-            console.log("Link deshabilitado");
         }
     };
 
-    const iconLeftSource = getIconSource(iconLeft, "left");
-    const iconRightSource = getIconSource(iconRight, "right");
+    const iconLeftSource = destructive ? getIconSource("logout", "left") : getIconSource(iconLeft, "left");
+    const iconRightSource = destructive ? null : getIconSource(iconRight, "right");
 
     return (
         <Pressable
