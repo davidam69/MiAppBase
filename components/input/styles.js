@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { constants } from "../../constants/constants";
+import { theme } from "../../constants/theme";
 
 export const styles = StyleSheet.create({
 
@@ -49,7 +50,7 @@ export const styles = StyleSheet.create({
 
     default: {
         borderColor: constants.INPUT.BORDER_DEFAULT,
-        backgroundColor: constants.INPUT.BACKGROUND_DEFAULT,
+        backgroundColor: theme.INPUT.BACKGROUND_COLOR,
     },
 
     focused: {

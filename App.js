@@ -6,7 +6,15 @@ import Input from './components/input/input';
 import {constants} from './constants/constants';
 import Button from './components/Button';
 import CheckBox from './components/CheckBox';
+import Navigation from './components/navigation/navigation';
 import LinkButton from './components/LinkButton';
+import RegisterScreen from "./screens/Hooks/RegisterScreen";
+import Pin from "./components/Pin";
+
+import Editar from "./assets/navigation/EditBtn.png"
+import Back from "./assets/navigation/BackDet.png"
+import Avatar from "./assets/navigation/AvatarBig.png"
+import Comercio from "./assets/navigation/HeroEmoji.png"
 
 import alertNombre from './assets/input/TriangleAlert.png';
 import verificadoNombre from './assets/input/Check.png';
@@ -28,11 +36,74 @@ import eyeOffAlert from './assets/input/EyeOffAlert.png';
 
 
 export default function App() {
+
+/*
+const [selectedPin, setSelectedPin] = useState(null);
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.pinArea}>
+        <View style={styles.pinTopLeft}>
+          <Pin
+            type="pin1"
+            selected={selectedPin === "pin1"}
+            onPress={() => setSelectedPin("pin1")}
+          />
+        </View>
+
+        <View style={styles.pinBottomRight}>
+          <Pin
+            type="pin2"
+            selected={selectedPin === "pin2"}
+            onPress={() => setSelectedPin("pin2")}
+          />
+        </View>
+      </View>
+    </View>
+  );
+}
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#C8C8C8",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  pinArea: {
+    width: 220,
+    height: 220,
+    position: "relative",
+  },
+
+  pinTopLeft: {
+    position: "absolute",
+    top: 10,
+    left: 10,
+  },
+
+  pinBottomRight: {
+    position: "absolute",
+    bottom: 10,
+    right: 10,
+  },
+}); */
+
+
+
+
+  const [showRegister, setShowRegister] = useState(true);
+  if (showRegister) {
+    return <RegisterScreen />;
+  }
+
+  const [nombre, setNombre] = useState("");
   const onPress = (value) => {
     console.log(value);
   };
 
-  const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
@@ -84,6 +155,15 @@ export default function App() {
         
         <CheckBox 
           label="test" onPress={onPress} isActive />
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Navegación</Text>
+        <Navigation title="Registro" subtitle="Crea tu cuenta gratis" backIcon={Back} state="default" onBack={() => console.log("volver")}/>
+        <Navigation title="Recuerar Contraseña" backIcon={Back} state="default" onBack={() => console.log("volver")}/>
+        <Navigation title="Detalle de promocion" backIcon={Back} centerIcon={Comercio} state="default" onBack={() => console.log("volver")}/>
+        <Navigation title="Mi Perfil" backIcon={Back} rightIcon={Editar} centerIcon={Avatar} onBack={() => console.log("volver")} onRightPress={() => console.log("editar")}/>
+        <Navigation title="Recuperar contraseña" subtitle="Estado disabled" backIcon={Back} state="disabled"/>
       </View>
 
       <View style={styles.section}>
@@ -236,8 +316,8 @@ export default function App() {
       </View>   
       <StatusBar style="auto" />
     </ScrollView>
-  );
-}
+  ); 
+}   
 
 const styles = StyleSheet.create({
     scrollContent: {
