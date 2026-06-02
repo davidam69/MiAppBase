@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Image, Text, ActivityIndicator, Pressable} from "react-native";
 import { styles } from "./styles";
 import iconCheck from "../../assets/button/Check.png";
+import { theme } from "../../constants/theme";
 import iconAlert from "../../assets/button/Alert.png";
 
 export default function Button({ title, onPress, disabled, loading, success, error, style }) {
@@ -17,7 +18,7 @@ const getButtonStyle = () => {
 };
 
 const getIcon = () => {
-    if (loading) return <ActivityIndicator size="small" color="#FFFFFF" />;
+    if (loading) return <ActivityIndicator size="small" color={theme.colors.white} />;
     if (success) return <Image source={iconCheck} style={styles.icon} />
     if (error) return <Image source={iconAlert} style={styles.icon} />;
     return null;
@@ -33,7 +34,7 @@ return (
     >
         {getIcon()}
         <Text style={disabled ? styles.textDisabled : styles.text}>
-            {loading ? "Cargando..." : title}
+            {loading ? theme.texts.loading : title}
         </Text>   
     </Pressable>
 );

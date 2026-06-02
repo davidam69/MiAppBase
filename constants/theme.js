@@ -4,10 +4,12 @@ const colors = {
     purple: "#7C3AED",
     purplePressed: "#5B21B6",
     darkPurple: "#4C1D95",
+    purpleHover: "#E5D8FB",
     purpleDisabled: "#C4B5FD",
     purpleLight: "#EDE9FE",
     grayText: "#9CA3AF",
     lightGray: "#D9D9D9",
+    lightGrayDisabled: "#D9D9E2",
     grayDisabled: "#D9D9E2",
     darkGray: "#6B7280",
     lightPurple: "#DDD6FE",
@@ -25,6 +27,13 @@ export const theme = {
 
   texts: {
         loading: "Cargando...",
+        login: "Iniciar sesión",
+        logout: "Cerrar sesión",
+        saved: "Guardado",
+        retry: "Reintentar",
+        register: "Crear cuenta",
+        yaTienesCuenta: "¿Ya tienes una cuenta?",
+        iniciaSesion: "Inicia sesión",
       },
 
   button: {
@@ -39,7 +48,7 @@ export const theme = {
     },
 
     DISABLED: {
-      backgroundColor: colors.purpleDisabled,
+      backgroundColor: colors.lightGrayDisabled,
       color: colors.grayText,
     },
 

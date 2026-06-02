@@ -10,6 +10,7 @@ import Navigation from './components/navigation/navigation';
 import LinkButton from './components/LinkButton';
 import RegisterScreen from "./screens/Hooks/RegisterScreen";
 import Pin from "./components/Pin";
+import { theme } from './constants/theme';
 
 import Editar from "./assets/navigation/EditBtn.png"
 import Back from "./assets/navigation/BackDet.png"
@@ -37,7 +38,7 @@ import eyeOffAlert from './assets/input/EyeOffAlert.png';
 
 export default function App() {
 
-/*
+
 const [selectedPin, setSelectedPin] = useState(null);
 
   return (
@@ -55,7 +56,7 @@ const [selectedPin, setSelectedPin] = useState(null);
           <Pin
             type="pin2"
             selected={selectedPin === "pin2"}
-            onPress={() => setSelectedPin("pin2")}
+            onPress={() => {console.log("pin2 pressed"); setSelectedPin("pin2")}}
           />
         </View>
       </View>
@@ -89,16 +90,16 @@ const styles = StyleSheet.create({
     bottom: 10,
     right: 10,
   },
-}); */
+}); 
 
 
 
-
+/*
   const [showRegister, setShowRegister] = useState(true);
   if (showRegister) {
     return <RegisterScreen />;
-  }
-
+  }*/
+/*
   const [nombre, setNombre] = useState("");
   const onPress = (value) => {
     console.log(value);
@@ -113,30 +114,30 @@ const styles = StyleSheet.create({
         <Text style={styles.sectionTitle}>Botones</Text>
         
         <Button 
-          title="Iniciar sesión" 
+          title={theme.texts.login} 
           onPress={() => console.log('Botón presionado!')} 
         />
         
         <Button 
-          title="Deshabilitado" 
+          title={theme.texts.login} 
           disabled 
           onPress={() => console.log('Botón deshabilitado!')} 
         />
         
         <Button 
-          title="Cargando..." 
+          title={theme.texts.loading} 
           loading 
           onPress={() => console.log('Botón cargando!')} 
         />
         
         <Button 
-          title="Guardado" 
+          title={theme.texts.saved} 
           success 
           onPress={() => console.log('Botón guardado!')} 
         />
         
         <Button 
-          title="Reintentar" 
+          title={theme.texts.retry} 
           error 
           onPress={() => console.log('Botón Error!')} 
         />
@@ -342,4 +343,4 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     color: '#7C3AED',
   },
-});
+});*/

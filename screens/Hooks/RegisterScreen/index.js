@@ -26,12 +26,12 @@ export default function RegisterScreen() {
     >
         <View style={styles.headerRow}>
             <Image source={iconback} />
-            <Text style={styles.title}>Registro</Text>
+            <Text style={styles.title}>Registro</Text> // tengo un texto debo pasarlo a theme
         </View>
 
         <View style={styles.section}>
 
-        <Text style={styles.subtitle}>Crea tu cuenta gratis</Text>
+        <Text style={styles.subtitle}>Crea tu cuenta gratis</Text>  // tengo un texto debo pasarlo a theme
       </View>
       </LinearGradient>
 
@@ -68,8 +68,8 @@ export default function RegisterScreen() {
         <Button title="Crear cuenta" />
 
         <Text style={styles.footerText}>
-          ¿Ya tienes una cuenta?{' '}
-          <Text style={styles.link}>Inicia sesión</Text>
+          ¿Ya tienes una cuenta?{' '} // tengo un texto debo pasarlo a theme
+          <Text style={styles.link}>Inicia sesión</Text> // tengo un texto debo pasarlo a theme
         </Text>
       </View>
     </SafeAreaView>
