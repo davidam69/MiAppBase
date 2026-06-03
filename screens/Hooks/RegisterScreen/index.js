@@ -1,20 +1,20 @@
-import { View, Text, Image } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import {LinearGradient} from 'expo-linear-gradient';
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from "expo-linear-gradient";
 
-import Input from '../../../components/input/input';
-import Button from '../../../components/Button';
-import CheckBox from '../../../components/CheckBox';
-import LinkButton from '../../../components/LinkButton';
+import Input from "../../../components/input/input";
+import Navigation from "../../../components/navigation/navigation";
+import Button from "../../../components/Button";
+import CheckBox from "../../../components/CheckBox";
+import LinkButton from "../../../components/LinkButton";
 import iconback from "../../../assets/navigation/BackDet.png";
 import mailDefault from "../../../assets/input/MailDefault.png";
 import lockDefault from "../../../assets/input/LockDefault.png";
 import eyeFocused from "../../../assets/input/EyeFocused.png";
 import lockKeyHole from "../../../assets/input/LockKeyhole.png";
-import { theme } from '../../../constants/theme';
+import { theme } from "../../../constants/theme";
+import { styles } from "./styles";
 
-import { styles } from './styles';
-  
 export default function RegisterScreen() {
   return (
     <SafeAreaView style={styles.container}>
@@ -23,53 +23,66 @@ export default function RegisterScreen() {
         start={{ x: 0, y: 1 }}
         end={{ x: 1, y: 0 }}
         style={styles.header}
-    >
+      >
         <View style={styles.headerRow}>
+          <TouchableOpacity onPress={() => {}} activeOpacity={0.6}>
             <Image source={iconback} />
-            <Text style={styles.title}>Registro</Text> // tengo un texto debo pasarlo a theme
+          </TouchableOpacity>
+          <Text style={styles.title}>{theme.texts.registerTitle}</Text>
         </View>
 
         <View style={styles.section}>
-
-        <Text style={styles.subtitle}>Crea tu cuenta gratis</Text>  // tengo un texto debo pasarlo a theme
-      </View>
+          <Text style={styles.subtitle}>
+            {theme.texts.registerScreenSubtitle}
+          </Text>
+        </View>
       </LinearGradient>
 
       <View style={styles.form}>
         <View style={styles.row}>
           <View style={styles.inputHalf}>
-          <Input label="Nombre" placeholder="Juan" />
+            <Input
+              label={theme.texts.name}
+              placeholder={theme.texts.firstName}
+            />
           </View>
           <View style={styles.inputHalf}>
-            <Input label="Apellido" placeholder="García" />
+            <Input
+              label={theme.texts.lastName}
+              placeholder={theme.texts.lastNamePlaceholder}
+            />
           </View>
         </View>
 
-        <Input label="Correo electrónico" placeholder="tu@mail.com" leftIcon={mailDefault}/>
+        <Input
+          label={theme.texts.email}
+          placeholder={theme.texts.emailPlaceholder}
+          leftIcon={mailDefault}
+        />
 
         <Input
-          label="Contraseña"
-          placeholder="Mínimo 8 caracteres"
+          label={theme.texts.password}
+          placeholder={theme.texts.passwordPlaceholder}
           secureTextEntry
           leftIcon={lockDefault}
           rightIcon={eyeFocused}
         />
 
         <Input
-          label="Confirmar contraseña"
-          placeholder="Repetir contraseña"
+          label={theme.texts.confirmPassword}
+          placeholder={theme.texts.confirmPasswordPlaceholder}
           secureTextEntry
           leftIcon={lockKeyHole}
         />
         <View style={styles.row}>
-          <CheckBox label="Acepto los términos y condiciones" />
+          <CheckBox label={theme.texts.acceptTerms} />
         </View>
 
-        <Button title="Crear cuenta" />
+        <Button title={theme.texts.createAccount} />
 
         <Text style={styles.footerText}>
-          ¿Ya tienes una cuenta?{' '} // tengo un texto debo pasarlo a theme
-          <Text style={styles.link}>Inicia sesión</Text> // tengo un texto debo pasarlo a theme
+          {theme.texts.youHaveAccount}{" "}
+          <Text style={styles.link}>{theme.texts.loginLink}</Text>
         </Text>
       </View>
     </SafeAreaView>

@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.white,
-
   },
 
   header: {
@@ -13,6 +12,9 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingTop: 48,
     height: 200,
+
+    borderTopLeftRadius: 32,
+    borderTopRightRadius: 32,
   },
 
   headerRow: {
@@ -32,6 +34,8 @@ export const styles = StyleSheet.create({
     color: theme.colors.lightPurple,
     marginTop: 10,
   },
+
+  section: {},
 
   form: {
     paddingHorizontal: 24,
